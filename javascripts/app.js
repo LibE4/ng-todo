@@ -1,5 +1,5 @@
 "use strict";
 
-console.log("inside app.js")
+console.log("inside app.js");
 
 

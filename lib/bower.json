@@ -3,10 +3,10 @@
   "description": "",
   "main": "index.js",
   "authors": [
-    "Zoe Ames <zoeames@gmail.com>"
+    "Bin Li <binli363@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/zoeames/angular-todo",
+  "homepage": "https://github.com/LibE4/ng-todo",
   "ignore": [
     "**/.*",
     "node_modules",
