@@ -3,10 +3,10 @@
   "description": "",
   "main": "index.js",
   "authors": [
-    "Zoe Ames <zoeames@gmail.com>"
+    "Bin Li <binli363@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/zoeames/angular-todo",
+  "homepage": "https://github.com/LibE4/ng-todo",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "jquery": "^3.1.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8"
   }
 }
