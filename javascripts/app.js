@@ -11,6 +11,7 @@ app.controller("NavCtrl", function($scope){
 app.controller("TodoCtrl", function($scope){
 	$scope.welcome = "hello";
 	$scope.showListView = true;
+	$scope.newTask = {};
 	$scope.items = [
 		{
 			id:0,
@@ -39,5 +40,14 @@ app.controller("TodoCtrl", function($scope){
 	$scope.newItem = function(){
 		console.log("you clicked new item");
 		$scope.showListView = false;
+	};
+
+	$scope.addNewItem =function(){
+		$scope.newTask.isCompleted = false;
+		$scope.newTask.id = $scope.items.length;
+		console.log("newTask in funtion", $scope.newTask);
+		$scope.items.push($scope.newTask);
+		$scope.newTask = "";
+		$scope.showListView = true;
 	};
 });
