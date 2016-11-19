@@ -49,7 +49,40 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG){
 		})
 	}
 
+	var getSingleItem = function(itemId){
+		return $q((resolve, reject) =>{
+			$http.get(`${FIREBASE_CONFIG.databaseURL}/items/${itemId}.json`
+			)
+			.success(function(getSingleResponse){
+				resolve(getSingleResponse);
+			})
+			.error(function(errorResponse){
+				reject(errorResponse);
+			});
+		})
+	}
+
+	var editItem = function(editItem){
+		return $q((resolve, reject) =>{
+			$http.put(`${FIREBASE_CONFIG.databaseURL}/items/${editItem.id}.json`,
+				JSON.stringify({
+					assignedTo: editItem.assignedTo,
+					isCompleted: editItem.isCompleted,
+					task: editItem.task
+				})
+			)
+			.success(function(editResponse){
+				resolve(editResponse);
+			})
+			.error(function(errorResponse){
+				reject(errorResponse);
+			});
+		})
+	}
+
 	return {getItemList: getItemList,
 					postNewItem: postNewItem,
-					deleteItem: deleteItem}
+					deleteItem: deleteItem,
+					editItem: editItem,
+					getSingleItem: getSingleItem}
 });
