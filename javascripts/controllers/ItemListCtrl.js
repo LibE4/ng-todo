@@ -14,5 +14,11 @@ app.controller("ItemListCtrl", function($scope, ItemFactory){
 		ItemFactory.deleteItem(itemId).then(function(resonse){
 			getItems();
 		})
+	};
+
+	$scope.inputChange = function(checkItem){
+		ItemFactory.editItem(checkItem).then(function(resonse){
+			console.log("ctrl inputChange response", resonse);
+		});
 	};	
 });
