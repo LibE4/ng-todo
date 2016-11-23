@@ -1,24 +1,24 @@
 "use strict";
 
-app.controller("ItemListCtrl", function($scope, ItemFactory){
+app.controller("ItemListCtrl", function($scope, $rootScope, ItemFactory){
 	$scope.items = [];
 
 	let getItems = function(){
-		ItemFactory.getItemList().then(function(fbItems){
+		ItemFactory.getItemList($rootScope.user.uid).then(function(fbItems){
 			$scope.items = fbItems;
 		})
 	}
 	getItems();
 
 	$scope.deleteItem = function(itemId){
-		ItemFactory.deleteItem(itemId).then(function(resonse){
+		ItemFactory.deleteItem(itemId).then(function(response){
 			getItems();
 		})
 	};
 
 	$scope.inputChange = function(checkItem){
-		ItemFactory.editItem(checkItem).then(function(resonse){
-			console.log("ctrl inputChange response", resonse);
+		ItemFactory.editItem(checkItem).then(function(response){
+			console.log("ctrl inputChange response", response);
 		});
 	};	
 });
